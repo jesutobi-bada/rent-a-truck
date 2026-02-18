@@ -1,0 +1,7 @@
+@import "../../../packages/config/tailwind-config/theme.css";
+@import "tailwindcss";
+@source "../../../packages/ui/src/**/*.tsx";
+
+@theme {
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}

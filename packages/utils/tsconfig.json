@@ -1,0 +1,7 @@
+{
+  "extends": "@rent-a-truck/config/typescript/library",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}

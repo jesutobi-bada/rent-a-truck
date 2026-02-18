@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "@commitlint/config-conventional"
+  ],
+  "rules": {
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "landing",
+        "renter",
+        "driver",
+        "admin",
+        "ui",
+        "utils",
+        "api-sdk",
+        "config",
+        "deps",
+        "ci"
+      ]
+    ],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "refactor",
+        "chore",
+        "docs",
+        "test",
+        "perf",
+        "ci",
+        "build",
+        "revert"
+      ]
+    ]
+  }
+}
