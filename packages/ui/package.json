@@ -1,0 +1,76 @@
+{
+  "name": "@rent-a-truck/ui",
+  "private": true,
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./index.css": {
+      "import": "./src/index.css",
+      "style": "./src/index.css",
+      "default": "./src/index.css"
+    },
+    "./components/atoms/*": "./src/components/atoms/*",
+    "./lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.2.0",
+    "@fontsource-variable/figtree": "^5.2.10",
+    "@hugeicons/core-free-icons": "^3.1.1",
+    "@hugeicons/react": "^1.1.5",
+    "@rent-a-truck/tailwind-config": "workspace:*",
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-table": "^8.21.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.1.1",
+    "date-fns": "^4.1.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.4.2",
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.4.3",
+    "react": "^19.2.0",
+    "react-day-picker": "^9.13.2",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.1",
+    "react-resizable-panels": "^4.6.4",
+    "recharts": "2.15.4",
+    "shadcn": "^3.8.4",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.4.0",
+    "vaul": "^1.1.2"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.0.1",
+    "@rent-a-truck/config": "workspace:*",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "@storybook/addon-vitest": "^10.2.8",
+    "@storybook/react-vite": "^10.2.8",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/browser-playwright": "^4.0.18",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^8.57.0",
+    "eslint-plugin-storybook": "^10.2.8",
+    "playwright": "^1.58.2",
+    "storybook": "^10.2.8",
+    "tailwindcss": "^4.1.17",
+    "typescript": "~5.6.2",
+    "vite": "^7.2.4",
+    "vitest": "^4.0.18"
+  }
+}
