@@ -1,6 +1,7 @@
 {
   "extends": "@rent-a-truck/config/typescript/library",
   "compilerOptions": {
+    "rootDir": ".",
     "baseUrl": ".",
     "jsx": "react-jsx",
     "moduleResolution": "bundler",

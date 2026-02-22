@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 import { Button, TypographyH2, TypographyP } from '@rent-a-truck/ui';
+import { env } from '../../env';
 
 export const CTABannerSection = () => {
   // const stats = [
@@ -37,15 +38,23 @@ export const CTABannerSection = () => {
             </TypographyP>
 
             <div className="mt-12 flex w-full flex-col justify-center gap-4 sm:flex-row lg:w-auto">
-              <Button size="lg" variant="secondary" className="group h-16 px-8 text-lg font-bold">
-                Rent a Truck
-              </Button>
-              <Button
-                size="lg"
-                className="bg-background text-foreground group h-16 px-8 text-lg font-bold"
-              >
-                Become a Driver
-              </Button>
+              <a href={env.VITE_APP_RENTER_URL} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="group h-16 w-full px-8 text-lg font-bold md:w-auto"
+                >
+                  Rent a Truck
+                </Button>
+              </a>
+              <a href={env.VITE_APP_DRIVER_URL} target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="bg-background text-foreground group h-16 w-full px-8 text-lg font-bold md:w-auto"
+                >
+                  Become a Driver
+                </Button>
+              </a>
             </div>
 
             {/* Stats Grid */}

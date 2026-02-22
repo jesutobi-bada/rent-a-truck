@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo, Icons, TypographyP } from '@rent-a-truck/ui';
 import { env } from '../../env';
 
@@ -21,18 +21,20 @@ export const Footer = () => {
             </TypographyP>
             <div className="flex gap-4">
               {[
-                { icon: Icons.Instagram, href: env.VITE_SOCIAL_INSTAGRAM },
-                { icon: Icons.Twitter, href: env.VITE_SOCIAL_X },
-                { icon: Icons.Facebook, href: env.VITE_SOCIAL_FACEBOOK },
-                { icon: Icons.LinkedIn, href: env.VITE_SOCIAL_LINKEDIN },
+                { name: 'Instagram', icon: Icons.Instagram, href: env.VITE_SOCIAL_INSTAGRAM },
+                { name: 'Twitter', icon: Icons.Twitter, href: env.VITE_SOCIAL_X },
+                { name: 'Facebook', icon: Icons.Facebook, href: env.VITE_SOCIAL_FACEBOOK },
+                { name: 'LinkedIn', icon: Icons.LinkedIn, href: env.VITE_SOCIAL_LINKEDIN },
               ]
                 .filter((link) => !!link.href)
-                .map(({ icon: Icon, href }, i) => (
+                .map(({ name, icon: Icon, href }, i) => (
                   <a
                     key={i}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title={`Follow us on ${name}`}
+                    aria-label={`Follow us on ${name}`}
                     className="bg-secondary border-secondary-foreground text-secondary-foreground hover:text-primary hover:border-primary/30 rounded-lg border p-2 transition-all duration-300"
                   >
                     <Icon className="size-5" />
@@ -48,11 +50,32 @@ export const Footer = () => {
                 Platform
               </h4>
               <ul className="text-secondary-foreground space-y-3 text-sm font-medium">
-                {['For Renters', 'For Drivers', 'Fleet Owners', 'Pricing'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:text-primary transition-colors duration-200">
-                      {link}
-                    </a>
+                {[
+                  { name: 'For Renters', href: env.VITE_APP_RENTER_URL, external: true },
+                  { name: 'For Drivers', href: env.VITE_APP_DRIVER_URL, external: true },
+                  { name: 'Fleet Owners', href: env.VITE_APP_ADMIN_URL, external: true },
+                  { name: 'Pricing', href: '/pricing', external: false },
+                ].map((link) => (
+                  <li key={link.name}>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title={link.name}
+                        className="hover:text-primary transition-colors duration-200"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        to={link.href}
+                        title={link.name}
+                        className="hover:text-primary transition-colors duration-200"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -62,11 +85,20 @@ export const Footer = () => {
                 Company
               </h4>
               <ul className="text-secondary-foreground space-y-3 text-sm font-medium">
-                {['About Us', 'Careers', 'Safety', 'Press'].map((link) => (
-                  <li key={link}>
-                    <a href="#" className="hover:text-primary transition-colors duration-200">
-                      {link}
-                    </a>
+                {[
+                  { name: 'About Us', path: '/about-us' },
+                  { name: 'Careers', path: '/careers' },
+                  { name: 'Safety', path: '/safety' },
+                  { name: 'Press', path: '/press' },
+                ].map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.path}
+                      title={link.name}
+                      className="hover:text-primary transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -79,6 +111,24 @@ export const Footer = () => {
               Support
             </h4>
             <ul className="text-secondary-foreground space-y-4 text-sm font-medium">
+              <li>
+                <Link
+                  to="/help-center"
+                  className="hover:text-primary flex items-center gap-3 transition-colors"
+                >
+                  <Icons.Information className="text-primary size-4" />
+                  <span>Help Center</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/faq"
+                  className="hover:text-primary flex items-center gap-3 transition-colors"
+                >
+                  <Icons.Help className="text-primary size-4" />
+                  <span>FAQ</span>
+                </Link>
+              </li>
               {env.VITE_SUPPORT_LOCATION && (
                 <li className="flex items-center gap-3">
                   <Icons.Location className="text-primary size-4" />
@@ -110,12 +160,20 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-2 text-xs font-medium">
-            <a href="#" className="hover:text-secondary-foreground">
+            <Link
+              to="/privacy-policy"
+              title="Privacy Policy"
+              className="hover:text-secondary-foreground"
+            >
               Privacy Policy
-            </a>
-            <a href="#" className="hover:text-secondary-foreground">
+            </Link>
+            <Link
+              to="/terms-of-service"
+              title="Terms of Service"
+              className="hover:text-secondary-foreground"
+            >
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

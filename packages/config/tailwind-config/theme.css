@@ -4,7 +4,18 @@
 
 @theme {
   /* Brand Colors - Amber Scale */
-  --color-brand: #EB5E28;
+  --color-brand: var(--color-brand-500);
+  --color-brand-50: #f9f7f5;
+  --color-brand-100:#f5eeea;
+  --color-brand-200:#eedbd3;
+  --color-brand-300:#e9bba5;
+  --color-brand-400:#ed885a;
+  --color-brand-500:#eb5e28;
+  --color-brand-600:#d64400;
+  --color-brand-700:#ad3700;
+  --color-brand-800:#852a00;
+  --color-brand-900:#5c1d00;
+  --color-brand-950:#331000;
 
   /* Typography - Figtree */
   --font-figtree: "Figtree", ui-sans-serif, system-ui, sans-serif;
@@ -15,20 +26,20 @@
 
 :root {
   /* Shadcn Theme Variables */
-  --background: #FFFCF2;
+  --background: var(--color-brand-100);
   --foreground: #252422;
-  --card: #FFFCF2;
+  --card: var(--color-brand-100);
   --card-foreground: #252422;
   --popover: oklch(1 0 0);
   --popover-foreground: #252422;
-  --primary: #eb5e28;
-  --primary-foreground: #FFFCF2;
+  --primary: var(--color-brand-500);
+  --primary-foreground: var(--color-brand-100);
   --secondary: #252422;
-  --secondary-foreground: #FFFCF2;
+  --secondary-foreground: var(--color-brand-100);
   --muted: #CCC5B9;
   --muted-foreground: #403D39;
-  --accent: #eb5e28;
-  --accent-foreground: #FFFCF2;
+  --accent: var(--color-brand-500);
+  --accent-foreground: var(--color-brand-100);
   --destructive: oklch(0.58 0.22 27);
   --border: #403D39;
   --input: oklch(0.922 0 0);
@@ -41,9 +52,9 @@
   --radius: 0.875rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: #252422;
-  --sidebar-primary: #eb5e28;
+  --sidebar-primary: var(--color-brand-500);
   --sidebar-primary-foreground: 252422;
-  --sidebar-accent: #eb5e28;
+  --sidebar-accent: var(--color-brand-500);
   --sidebar-accent-foreground: #252422;
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);

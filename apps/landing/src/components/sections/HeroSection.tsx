@@ -2,19 +2,24 @@ import { motion, Variants, AnimatePresence } from 'framer-motion';
 import React, { useState, useEffect, useCallback } from 'react';
 
 import { Button, TypographyH1, TypographyLead } from '@rent-a-truck/ui';
+import { env } from '../../env';
 
 const vehicles = [
   {
     image: 'https://res.cloudinary.com/nobody-bada/image/upload/v1771435820/truck-1_gftrfb.webp',
+    alt: 'Commercial vehicle for haulage - Flatbed truck',
   },
   {
     image: 'https://res.cloudinary.com/nobody-bada/image/upload/v1771435820/truck-2_cstpeh.webp',
+    alt: 'Logistics transport truck - Closed body',
   },
   {
     image: 'https://res.cloudinary.com/nobody-bada/image/upload/v1771435821/truck-3_z2v03v.jpg',
+    alt: 'Heavy duty moving truck',
   },
   {
     image: 'https://res.cloudinary.com/nobody-bada/image/upload/v1771435821/truck-4_stwzvv.jpg',
+    alt: 'Specialized liquid transport truck',
   },
 ];
 
@@ -95,16 +100,23 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="flex w-full flex-col justify-center gap-4 pt-2 sm:flex-row lg:w-auto"
           >
-            <Button size="lg" className="shadow-primary/20 h-16 px-10 text-lg font-bold shadow-xl">
-              Book a Truck
-            </Button>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="border-secondary-foreground/10 hover:border-primary/50 h-16 border-2 px-10 text-lg font-bold transition-colors"
-            >
-              Become a Driver
-            </Button>
+            <a href={env.VITE_APP_RENTER_URL} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="shadow-primary/20 h-16 w-full text-lg font-bold shadow-xl md:w-auto"
+              >
+                Book a Truck
+              </Button>
+            </a>
+            <a href={env.VITE_APP_DRIVER_URL} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-16 w-full text-lg font-bold md:w-auto"
+              >
+                Become a Driver
+              </Button>
+            </a>
           </motion.div>
 
           {/* Shuffling Image Cards */}
@@ -154,7 +166,7 @@ export const HeroSection = () => {
                     <div className="absolute inset-0 z-0">
                       <img
                         src={vehicle.image}
-                        alt={vehicle.image}
+                        alt={vehicle.alt}
                         className="h-full w-full scale-110 transform object-cover transition-transform duration-700 group-hover:scale-100"
                       />
                     </div>

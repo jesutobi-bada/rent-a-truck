@@ -1,5 +1,6 @@
 import {
   DeliveryTruck01Icon,
+  Cancel01Icon,
   UserGroupIcon,
   Location01Icon,
   SecurityCheckIcon,
@@ -26,6 +27,8 @@ import {
   InstagramIcon,
   Facebook02Icon,
   CallingIcon,
+  HelpSquareIcon,
+  InformationSquareIcon,
 } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon, HugeiconsProps } from '@hugeicons/react';
 import React from 'react';
@@ -69,6 +72,7 @@ export const Icons = {
   Download: createIcon(Download01Icon),
   Smartphone: createIcon(SmartPhone01Icon),
   Menu: createIcon(Menu01Icon),
+  Cancel: createIcon(Cancel01Icon),
   ChevronDown: createIcon(ArrowDown01Icon),
   SteeringWheel: createIcon(StreeringWheelIcon),
   Package: createIcon(Package01Icon),
@@ -82,6 +86,8 @@ export const Icons = {
   Dollar: createIcon(Money01Icon),
   User: createIcon(UserIcon),
   UserCheck: createIcon(UserCheck01Icon),
+  Help: createIcon(HelpSquareIcon),
+  Information: createIcon(InformationSquareIcon),
 };
 
 export type IconName = keyof typeof Icons;

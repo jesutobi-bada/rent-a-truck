@@ -1,6 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 
 import { Icons, TypographyH2, TypographyP, Button, cn } from '@rent-a-truck/ui';
+import { env } from '../../env';
 
 import { DriverIllustration } from '../illustrations/DriverIllustration';
 import { OwnerIllustration } from '../illustrations/OwnerIllustration';
@@ -26,7 +27,8 @@ const EcosystemCard = ({
   buttonVariant = 'solid',
   className,
   index,
-}: EcosystemCardProps) => {
+  href,
+}: EcosystemCardProps & { href?: string }) => {
   const isEven = index % 2 === 0;
 
   const cardVariants: Variants = {
@@ -74,9 +76,11 @@ const EcosystemCard = ({
         </ul>
 
         <div className="pt-4">
-          <Button size="lg" className="w-full px-8 md:w-auto" variant={buttonVariant}>
-            {buttonText}
-          </Button>
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="w-full px-8 md:w-auto" variant={buttonVariant}>
+              {buttonText}
+            </Button>
+          </a>
         </div>
       </div>
 
@@ -111,6 +115,7 @@ export const EcosystemSection = () => {
       features: ['Real-time GPS tracking', 'Transparent, upfront pricing', '24/7 Customer support'],
       buttonText: 'Get Started as Renter',
       buttonVariant: 'secondary' as const,
+      href: env.VITE_APP_RENTER_URL,
     },
     {
       icon: <Icons.SteeringWheel />,
@@ -120,6 +125,7 @@ export const EcosystemSection = () => {
       features: ['Flexible earnings', 'Smart navigation', 'Instant payouts'],
       buttonText: 'Get Started as Driver',
       buttonVariant: 'solid' as const,
+      href: env.VITE_APP_DRIVER_URL,
     },
     {
       icon: <Icons.Chart />,
@@ -132,7 +138,8 @@ export const EcosystemSection = () => {
         'Automated maintenance alerts',
       ],
       buttonText: 'Get Started as Owner',
-      buttonVariant: 'solid' as const,
+      buttonVariant: 'secondary' as const,
+      href: env.VITE_APP_ADMIN_URL,
     },
   ];
 

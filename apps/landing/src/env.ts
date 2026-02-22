@@ -8,6 +8,9 @@ const envSchema = z.object({
   VITE_SOCIAL_X: z.url().optional(),
   VITE_SOCIAL_FACEBOOK: z.url().optional(),
   VITE_SOCIAL_LINKEDIN: z.url().optional(),
+  VITE_APP_RENTER_URL: z.string().url(),
+  VITE_APP_DRIVER_URL: z.string().url(),
+  VITE_APP_ADMIN_URL: z.string().url(),
 });
 
 /**
